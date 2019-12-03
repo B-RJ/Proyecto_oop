@@ -1,0 +1,25 @@
+Explicación del UML
+
+La clase principal es Restaurante. La clase Cliente está unida a Restaurante por medio de composición. El numero
+máximo de clientes está definido en una variable de Restaurante. Cada cliente tiene un nombre y un asiento. 
+
+La clase inventario está conectada por medio de composición a la clase Restaurante, y tiene comunicación con la clase bebida.
+Esto con el fin de que cada vez que se pida una bebida, se quite del inventario. 
+
+La clase Consumo está unida a la clase Cliente por medio de agregación, ya que si el cliente se va, su consumo sigue siendo utilizado
+por el restaurante para revisar a dónde se está yendo el inventario. 
+
+La clase Bebida está unida a la Clase Consumo por medio 
+de agregación ya que a pesar de que se borre el consumo de un cliente, se va a poder seguir ordenando bebidas.
+
+La clase Bebida tiene dos sub clases, Cafe, y Jugo.
+
+-------->>>>>>Ahora existe la clase cliente, la cual se construye con un consumo. Quería hacer que la clase consumo se creara dentro
+de la clase cliente pero no funcionó. Lo resolví temporelmente creando el consumo por fuera y después poniendolo en el
+constructor de cliente (línea 230)
+
+// Lógica del programa 
+
+Actualmente en el main hay un ciclo while que llama al método set_cuenta del consumo. Este método, dependiendo si se
+eligió café o jugo, crea una lista de los cafés que pidió el cliente y después pide información para llenar los 
+objetos que se crearon y calcular su precio. 
