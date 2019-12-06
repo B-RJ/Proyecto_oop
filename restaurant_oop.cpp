@@ -122,75 +122,18 @@ int Jugo :: get_precio(){
 class Consumo{
 	public:
 		//void set_consumo_total(string elec);
-		void set_cuenta();
+		//void set_cuenta();
 		int get_consumo_total();
 		Consumo(){}
 		Consumo(Bebida beb);
+		void set_consumo_total(int ct);
 	private:
 		int consumo_total = 0;
 		
 };
 
-// No quito esto de programa debido a que planeo utilizarlo más tarde. No me dio tiempo de hacer que 
-// funcionara con la nueva versión del programa. 
-
-//void Consumo :: set_consumo_total(string elec){
-//	if (elec == "cafe"){
-//		
-//		cout << "Que tamano?" << endl;
-//		string tamano;
-//		cin >> tamano;
-//		cout << "Que temperatura? (caliente/frio)" << endl;
-//		string tempera;
-//		cin >> tempera;
-//		Cafe caf1(tempera, tamano);
-//		consumo_total += caf1.get_precio();
-//	}
-//	else if (elec == "jugo"){
-//		cout << "Que tamano?" << endl;
-//		string tamano;
-//		cin >> tamano;
-//		Jugo jug1(tamano);
-//		consumo_total += jug1.get_precio();
-//	}
-//}
-
-// En esta parte se crea una lista para todos los objetos cafe que ordeno un cliente y otra lista para
-// todos los objetos jugo
-void Consumo :: set_cuenta(){
-	cout << "Tipo de bebida" << endl;
-	string bebi;
-	cin >> bebi;
-	if(bebi == "cafe"){
-	cout << "ingrese el numero de cafes" << endl;
-	int prd;
-	cin >> prd;
-	Cafe *s = new Cafe[prd];
-	for(int i = 0; i < prd; i++){
-		cout << "tamano (grande,mediano,pequeno)" << endl;
-		string ele1;
-		cin >> ele1;
-		s[i].set_tamano(ele1);
-		cout << "temperatura? (caliente/frio)" << endl;
-		string ele2;
-		cin >> ele2;
-		s[i].set_temperatura(ele2);
-		consumo_total += s[i].get_precio();
-	}
-	} else if(bebi == "jugo"){
-	cout << "ingrese el numero de jugos" << endl;
-	int prd1;
-	cin >> prd1;
-	Jugo *s = new Jugo[prd1];
-	for(int i = 0; i < prd1; i++){
-		cout << "tamano (grande,mediano,pequeno)" << endl;
-		string ele2;
-		cin >> ele2;
-		s[i].set_tamano(ele2);
-		consumo_total += s[i].get_precio();
-	}
-	}
-	
+void Consumo :: set_consumo_total(int ct){
+	consumo_total = consumo_total += ct;
 }
 
 int Consumo :: get_consumo_total(){
@@ -234,8 +177,38 @@ int main(){
 	bool bandera = true;
 	while(bandera == true){
 		
-	
-	con1.set_cuenta();
+		cout << "Tipo de bebida" << endl;
+	string bebi;
+	cin >> bebi;
+	if(bebi == "cafe"){
+	cout << "ingrese el numero de cafes" << endl;
+	int prd;
+	cin >> prd;
+	Cafe *s = new Cafe[prd];
+	for(int i = 0; i < prd; i++){
+		cout << "tamano (grande,mediano,pequeno)" << endl;
+		string ele1;
+		cin >> ele1;
+		s[i].set_tamano(ele1);
+		cout << "temperatura? (caliente/frio)" << endl;
+		string ele2;
+		cin >> ele2;
+		s[i].set_temperatura(ele2);
+		con1.set_consumo_total(s[i].get_precio());
+	}
+	} else if(bebi == "jugo"){
+	cout << "ingrese el numero de jugos" << endl;
+	int prd1;
+	cin >> prd1;
+	Jugo *s = new Jugo[prd1];
+	for(int i = 0; i < prd1; i++){
+		cout << "tamano (grande,mediano,pequeno)" << endl;
+		string ele2;
+		cin >> ele2;
+		s[i].set_tamano(ele2);
+		con1.set_consumo_total(s[i].get_precio());
+	}
+	}
 	cout << "Quieres el total?" << endl;
 	string cuent;
 	cin >> cuent;
